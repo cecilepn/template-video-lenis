@@ -1,7 +1,4 @@
-<script setup>
-  const { $lenis } = useNuxtApp()
-  onMounted(()=> console.log($lenis))
-</script>
+<script setup></script>
 
 <template>
   <div>
