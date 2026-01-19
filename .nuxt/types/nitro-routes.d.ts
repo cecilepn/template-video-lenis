@@ -9,12 +9,6 @@ declare module "nitropack/types" {
     '/__nuxt_island/**': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/#internal/nuxt/island-renderer').default>>>>
     }
-    '/api/_nuxt_icon/:collection': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+icon@1.15.0_magicast@0.5.1_vite@7.3.1_jiti@2.6.1_lightningcss@1.30.2_terser@5.46._0cc09862379354fd5db02c1c399ab52e/node_modules/@nuxt/icon/dist/runtime/server/api').default>>>>
-    }
-    '/_ipx/**': {
-      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/.pnpm/@nuxt+image@1.10.0_db0@0.3.4_ioredis@5.9.2_magicast@0.5.1/node_modules/@nuxt/image/dist/runtime/ipx').default>>>>
-    }
   }
 }
 export {}

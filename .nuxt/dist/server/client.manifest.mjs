@@ -1,1 +1,0 @@
-export { default } from "file:///Users/cecile/_code/template-video-lenis/node_modules/.pnpm/@nuxt+vite-builder@4.2.2_eslint@9.39.2_jiti@2.6.1__lightningcss@1.30.2_magicast@0.5.1_n_121b84ec9edc6b7beb22a89be307c685/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

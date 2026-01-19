@@ -13,31 +13,9 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
    nitro: {
       envPrefix: string,
    },
-
-   icon: {
-      serverKnownCssClasses: Array<any>,
-   },
-
-   "nuxt-scripts": {
-      version: string,
-   },
   }
   interface SharedPublicRuntimeConfig {
-   "nuxt-scripts": {
-      version: string,
 
-      defaultScriptOptions: {
-         trigger: string,
-      },
-   },
-
-   device: {
-      defaultUserAgent: string,
-
-      enabled: boolean,
-
-      refreshOnResize: boolean,
-   },
   }
 declare module '@nuxt/schema' {
   interface RuntimeConfig extends UserRuntimeConfig {}
