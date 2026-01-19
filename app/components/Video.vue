@@ -4,7 +4,7 @@
   const modalRef = ref(null)
   let modalLenis = null
 
-  const initLenis = () => {
+  const initModalLenis = () => {
     if (!modalRef.value || !modalRef.value.firstElementChild) return
     modalLenis?.destroy()
     modalLenis = new Lenis({
@@ -18,9 +18,8 @@
     })
   }
 
-  onMounted(async () => {
-    initLenis()
-    console.log(videoRef.value.seeking)
+  onMounted(() => {
+    initModalLenis()
   })
 
   onBeforeUnmount(() => {
@@ -28,29 +27,37 @@
     modalLenis = null
   })
 
-  watch(
-    () => videoRef.value,
-    async isActive => {
-      await nextTick()
-      if (!modalLenis) return
-      modalLenis.resize()
-      if (isActive) {
-        modalLenis.start()
-      } else {
-        modalLenis.stop()
+  const updateScrollProgress = () => {
+     nextTick(() => {
+      if (modalLenis) {
+          modalLenis.on('scroll', ({ progress }) => {
+          videoRef.value.currentTime += progress
+          console.log(videoRef.value.currentTime * progress )
+        })
       }
-    }
-  )
+    })
+  }
 
-  const updateScrollProgress = progress => {
-    console.log({ progress })
+  const togglePlay = async () => {
+    if (!videoRef.value || !modalLenis) return
+    if (videoRef.value.paused) {
+      initModalLenis()
+      videoRef.value.play();
+      updateScrollProgress()
+    } else {
+      videoRef.value.pause();
+      modalLenis?.destroy()
+    }
   }
 </script>
 
 <template>
-<section class="h-screen w-full" ref="modalRef" data-lenis-local>
-  <video ref="videoRef" controls>
-    <source src="/content/video.mp4" type="video/mp4" />
-  </video>
-</section>
+  <section class="h-screen w-full overflow-hidden" ref="modalRef" data-lenis-local>
+    <div class="h-[120vh]" >
+      <video ref="videoRef" >
+        <source src="/content/video.mp4" type="video/mp4"/>
+      </video>
+    </div>
+    <div class="z-10 absolute w-full h-full top-0" @click="togglePlay()"/>
+  </section>
 </template>

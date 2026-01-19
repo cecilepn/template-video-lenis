@@ -2,6 +2,6 @@
 
 <template>
   <section class="h-[200vh]">
-    <Video></Video>
+    <Video/>
   </section>
 </template>
