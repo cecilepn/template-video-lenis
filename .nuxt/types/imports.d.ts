@@ -100,6 +100,7 @@ declare global {
   const useCookie: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/cookie').useCookie
   const useCssModule: typeof import('vue').useCssModule
   const useCssVars: typeof import('vue').useCssVars
+  const useDevice: typeof import('../../node_modules/.pnpm/@nuxtjs+device@4.0.0/node_modules/@nuxtjs/device/dist/runtime/composables/useDevice').useDevice
   const useError: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/error').useError
   const useFetch: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/fetch').useFetch
   const useHead: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/head').useHead
@@ -113,6 +114,7 @@ declare global {
   const useModel: typeof import('vue').useModel
   const useNuxtApp: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/nuxt').useNuxtApp
   const useNuxtData: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/asyncData').useNuxtData
+  const useNuxtDevTools: typeof import('../../node_modules/.pnpm/@nuxt+devtools@3.1.1_vite@7.3.1_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.0_yaml@2.8.2__vue@3.5.26_typescript@5.9.3_/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools').useNuxtDevTools
   const usePreviewMode: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/preview').usePreviewMode
   const useRequestEvent: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/ssr').useRequestEvent
   const useRequestFetch: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/ssr').useRequestFetch
@@ -284,6 +286,7 @@ declare module 'vue' {
     readonly useCookie: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/cookie')['useCookie']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useDevice: UnwrapRef<typeof import('../../node_modules/.pnpm/@nuxtjs+device@4.0.0/node_modules/@nuxtjs/device/dist/runtime/composables/useDevice')['useDevice']>
     readonly useError: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/error')['useError']>
     readonly useFetch: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/fetch')['useFetch']>
     readonly useHead: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/head')['useHead']>
@@ -297,6 +300,7 @@ declare module 'vue' {
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
+    readonly useNuxtDevTools: UnwrapRef<typeof import('../../node_modules/.pnpm/@nuxt+devtools@3.1.1_vite@7.3.1_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.0_yaml@2.8.2__vue@3.5.26_typescript@5.9.3_/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']>
     readonly usePreviewMode: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/preview')['usePreviewMode']>
     readonly useRequestEvent: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/ssr')['useRequestEvent']>
     readonly useRequestFetch: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@vue+compiler-sfc@3.5.26_cac@6.7.14_db0@0.3.4_eslint@9_f1423c5c0e7028edaa630f9833d4a560/node_modules/nuxt/dist/app/composables/ssr')['useRequestFetch']>
