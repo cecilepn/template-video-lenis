@@ -25,7 +25,7 @@
   const nuxtApp = useNuxtApp()
   const videoRef = ref(null)
   const modalRef = ref(null)
-  const progressBar = ref(null)
+  const newWidth = ref('100%')
   let modalLenis
 
   onMounted(() => {
@@ -39,43 +39,37 @@
   })
 
   const updateVideoOnScroll = () => {
-    if (!progressBar.value) return
-    nextTick(() => {
-      if (modalLenis) {
-        modalLenis.on('scroll', ({ progress }) => {
-          if (videoRef.value.currentTime < videoRef.value.duration) {
-            videoRef.value.currentTime += progress
-          }
-        })
+    if (!modalLenis || !videoRef.value) return
+    const video = videoRef.value
+    newWidth.value = `120vw`
+    console.log(video.duration, newWidth.value)
+    modalLenis.on('scroll', ({ progress }) => {
+      if (video.currentTime < video.duration) {
+        video.currentTime += progress
+        console.log(video.currentTime)
       }
     })
   }
 
   const togglePlay = async () => {
-    if (!videoRef.value || !modalLenis) return
+    if (!modalLenis || !videoRef.value) return
     if (videoRef.value.paused) {
       videoRef.value.play()
       updateVideoOnScroll()
     } else {
       videoRef.value.pause()
-      modalLenis?.destroy()
     }
   }
 </script>
 
 <template>
-  <section
-    class="h-screen w-full overflow-hidden"
-    ref="modalRef"
-    data-lenis-local>
-    <div class="w-[120vw]">
-      <video ref="videoRef">
-        <source src="/content/video.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div
-      ref="progressBar"
-      class="h-full w-px bg-off-white absolute left-0 top-0 z-10 transition-transform duration-200 ease-out" />
+  <div class="h-screen w-full overflow-hidden" ref="modalRef" data-lenis-local>
+    <div class="relative h-full" :style="`width: ${newWidth}`" />
+    <video
+      ref="videoRef"
+      class="h-full w-full absolute top-0 left-0 bg-red-200">
+      <source src="/content/video.mp4" type="video/mp4" />
+    </video>
     <div class="z-10 absolute w-full h-full top-0" @click="togglePlay()" />
-  </section>
+  </div>
 </template>
