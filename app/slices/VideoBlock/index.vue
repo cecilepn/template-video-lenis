@@ -2,8 +2,6 @@
   const props = defineProps(
     getSliceComponentProps(['slice', 'index', 'slices', 'context'])
   )
-
-  console.log(props.slice.primary)
 </script>
 
 <template>

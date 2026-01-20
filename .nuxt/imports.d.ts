@@ -30,6 +30,9 @@ export { requestIdleCallback, cancelIdleCallback } from '#app/compat/idle-callba
 export { setInterval } from '#app/compat/interval';
 export { definePageMeta } from '../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/pages/runtime/composables';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
+export { useLocalLenis } from '../app/composables/useLocalLenis';
+export { default as useResizeMedia } from '../app/composables/useResizeMedia';
+export { useVimeo } from '../app/composables/useVimeo';
 export { useDevice } from '../node_modules/.pnpm/@nuxtjs+device@4.0.0/node_modules/@nuxtjs/device/dist/runtime/composables/useDevice';
 export { usePrismic, getSliceComponentProps, defineSliceZoneComponents, getRichTextComponentProps, getTableComponentProps } from '@prismicio/vue';
 export { usePrismicPreview } from '../node_modules/.pnpm/@nuxtjs+prismic@5.1.1_@prismicio+client@7.21.3_magicast@0.5.1_vue@3.5.26_typescript@5.9.3_/node_modules/@nuxtjs/prismic/dist/runtime/usePrismicPreview';

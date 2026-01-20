@@ -115,6 +115,7 @@ declare global {
   const useLazyFetch: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/fetch').useLazyFetch
   const useLink: typeof import('vue-router').useLink
   const useLoadingIndicator: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/loading-indicator').useLoadingIndicator
+  const useLocalLenis: typeof import('../../app/composables/useLocalLenis').useLocalLenis
   const useModel: typeof import('vue').useModel
   const useNuxtApp: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/nuxt').useNuxtApp
   const useNuxtData: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/asyncData').useNuxtData
@@ -127,6 +128,7 @@ declare global {
   const useRequestHeader: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/ssr').useRequestHeader
   const useRequestHeaders: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/ssr').useRequestHeaders
   const useRequestURL: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/url').useRequestURL
+  const useResizeMedia: typeof import('../../app/composables/useResizeMedia').default
   const useResponseHeader: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/ssr').useResponseHeader
   const useRoute: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/router').useRoute
   const useRouteAnnouncer: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/route-announcer').useRouteAnnouncer
@@ -172,6 +174,7 @@ declare global {
   const useState: typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/state').useState
   const useTemplateRef: typeof import('vue').useTemplateRef
   const useTransitionState: typeof import('vue').useTransitionState
+  const useVimeo: typeof import('../../app/composables/useVimeo').useVimeo
   const watch: typeof import('vue').watch
   const watchEffect: typeof import('vue').watchEffect
   const watchPostEffect: typeof import('vue').watchPostEffect
@@ -307,6 +310,7 @@ declare module 'vue' {
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/fetch')['useLazyFetch']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useLoadingIndicator: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/loading-indicator')['useLoadingIndicator']>
+    readonly useLocalLenis: UnwrapRef<typeof import('../../app/composables/useLocalLenis')['useLocalLenis']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
@@ -319,6 +323,7 @@ declare module 'vue' {
     readonly useRequestHeader: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/ssr')['useRequestHeader']>
     readonly useRequestHeaders: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/ssr')['useRequestHeaders']>
     readonly useRequestURL: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/url')['useRequestURL']>
+    readonly useResizeMedia: UnwrapRef<typeof import('../../app/composables/useResizeMedia')['default']>
     readonly useResponseHeader: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/ssr')['useResponseHeader']>
     readonly useRoute: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/router')['useRoute']>
     readonly useRouteAnnouncer: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/route-announcer')['useRouteAnnouncer']>
@@ -364,6 +369,7 @@ declare module 'vue' {
     readonly useState: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@4.2.2_@parcel+watcher@2.5.4_@types+node@25.0.9_@vue+compiler-sfc@3.5.26_cac@6.7.14_f0baa76bd6a10c38775cde9c1a21de5c/node_modules/nuxt/dist/app/composables/state')['useState']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
     readonly useTransitionState: UnwrapRef<typeof import('vue')['useTransitionState']>
+    readonly useVimeo: UnwrapRef<typeof import('../../app/composables/useVimeo')['useVimeo']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>

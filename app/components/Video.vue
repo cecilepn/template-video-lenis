@@ -1,6 +1,4 @@
 <script setup>
-  import Lenis from 'lenis'
-
   const props = defineProps({
     sourceDesktop: {
       type: Object,
@@ -24,28 +22,15 @@
     }
   })
 
+  const nuxtApp = useNuxtApp()
   const videoRef = ref(null)
   const modalRef = ref(null)
   const progressBar = ref(null)
-  let modalLenis = null
-
-  const initModalLenis = () => {
-    if (!modalRef.value || !modalRef.value.firstElementChild) return
-    modalLenis?.destroy()
-    modalLenis = new Lenis({
-      wrapper: modalRef.value,
-      content: modalRef.value.firstElementChild,
-      eventsTarget: modalRef.value,
-      smoothWheel: true,
-      smoothTouch: true,
-      autoRaf: true,
-      lerp: 0.15,
-      orientation: 'horizontal'
-    })
-  }
+  let modalLenis
 
   onMounted(() => {
-    initModalLenis()
+    useLocalLenis(modalRef)
+    modalLenis = nuxtApp.$localLenis
   })
 
   onBeforeUnmount(() => {
@@ -54,13 +39,12 @@
   })
 
   const updateVideoOnScroll = () => {
+    if (!progressBar.value) return
     nextTick(() => {
       if (modalLenis) {
         modalLenis.on('scroll', ({ progress }) => {
           if (videoRef.value.currentTime < videoRef.value.duration) {
             videoRef.value.currentTime += progress
-
-            console.log(videoRef.value.currentTime)
           }
         })
       }
@@ -70,7 +54,6 @@
   const togglePlay = async () => {
     if (!videoRef.value || !modalLenis) return
     if (videoRef.value.paused) {
-      initModalLenis()
       videoRef.value.play()
       updateVideoOnScroll()
     } else {
@@ -92,7 +75,7 @@
     </div>
     <div
       ref="progressBar"
-      class="h-full w-px bg-off-white absolute left-0 top-0" />
+      class="h-full w-px bg-off-white absolute left-0 top-0 z-10 transition-transform duration-200 ease-out" />
     <div class="z-10 absolute w-full h-full top-0" @click="togglePlay()" />
   </section>
 </template>
