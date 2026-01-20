@@ -21,7 +21,7 @@ export function useVimeo({
           id: videoId,
           ...options
         })
-
+        console.log(player)
         await player.ready()
         setTimeout(() => (ready.value = true), 1200)
         player.on('error', () => (hideVideo.value = true))
