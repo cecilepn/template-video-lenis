@@ -16,6 +16,7 @@ declare module "#build/nuxtjs-device.mjs";
 declare module "#build/prismic/proxy/client.ts";
 declare module "#build/prismic/proxy/linkResolver.ts";
 declare module "#build/prismic/proxy/richTextComponents.ts";
+declare module "#build/nuxt-scripts-trigger-resolver.mjs";
 declare module "#build/devtools/settings.mjs";
 declare module "#build/runtime.vue-devtools-client.naTBRq9LbE__CP1l5nr8TKJWPwe2Uv4WvHOg3CrDF6g.js";
 declare module "#build/routes.mjs";

@@ -3,8 +3,7 @@ export function useVimeo({
   videoRef,
   containerRef,
   videoRatio,
-  options,
-  isLoop
+  options
 }) {
   const { onLoaded } = useScriptVimeoPlayer()
   const ready = ref(false)
@@ -28,27 +27,12 @@ export function useVimeo({
         player.on('error', () => (hideVideo.value = true))
 
         const parent = videoRef.value.parentElement
-        if (isLoop) {
-          const [videoWidth, videoHeight] = await Promise.all([
-            player.getVideoWidth(),
-            player.getVideoHeight()
-          ])
-          const videoRatio = videoWidth / videoHeight
-          if (parent) {
-            resizeObserver = new ResizeObserver(() =>
-              useResizeMedia(videoRef, parent, videoRatio, false, true)
-            )
-            resizeObserver.observe(parent)
-          }
-          await useResizeMedia(videoRef, parent, videoRatio, false, isLoop)
-        } else {
-          await useResizeMedia(videoRef, containerRef, videoRatio, false)
-          if (parent) {
-            resizeObserver = new ResizeObserver(() =>
-              useResizeMedia(videoRef, containerRef, videoRatio, false)
-            )
-            resizeObserver.observe(parent)
-          }
+        await useResizeMedia(videoRef, containerRef, videoRatio)
+        if (parent) {
+          resizeObserver = new ResizeObserver(() =>
+            useResizeMedia(videoRef, containerRef, videoRatio)
+          )
+          resizeObserver.observe(parent)
         }
       })
     })

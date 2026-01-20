@@ -2,29 +2,20 @@ export default async function useResizeMedia(
   mediaRef,
   containerRef,
   videoRatio,
-  isImage,
-  isLoop
+  isImage
 ) {
   const { isMobile } = useDevice()
   if (!mediaRef.value) return
   try {
     const mediaWrapper = isImage ? mediaRef.value.$el : mediaRef.value
-    const containerWidth = isLoop
-      ? containerRef.clientWidth
-      : containerRef.value.clientWidth
-    const containerHeight = isLoop
-      ? containerRef.clientHeight
-      : containerRef.value.clientHeight
+    const containerWidth = containerRef.value.clientWidth
+    const containerHeight = containerRef.value.clientHeight
     const containerRatio = containerWidth / containerHeight
 
     const newWidth = containerHeight * videoRatio
     const newHeight = containerWidth / videoRatio
 
-    const conditionResize = isLoop
-      ? videoRatio < containerRatio
-      : videoRatio > containerRatio
-
-    if (conditionResize || isMobile) {
+    if (videoRatio > containerRatio || isMobile) {
       mediaWrapper.style.width = `${containerWidth}px`
       mediaWrapper.style.height = `${newHeight}px`
     } else {

@@ -22,13 +22,43 @@
     }
   })
 
+  const { isMobile } = useDevice()
   const nuxtApp = useNuxtApp()
+
+  const containerRef = ref()
+  const imageRef = ref()
   const videoRef = ref(null)
   const modalRef = ref(null)
+
   const newWidth = ref('100%')
   let modalLenis
 
+  const videoRatio = props.videoDesktop.width / props.videoDesktop.height
+  const options = {
+    responsive: true,
+    vimeo_logo: false,
+    title: false,
+    byline: false,
+    pip: false,
+    portrait: false
+  }
+  const videoId =
+    isMobile && props.videoMobile?.video_id
+      ? props.videoMobile.video_id
+      : props.videoDesktop?.video_id
+
+  const { ready, hideVideo } = useVimeo({
+    videoId,
+    videoRef,
+    containerRef,
+    videoRatio,
+    options
+  })
+
   onMounted(() => {
+    nextTick(() => {
+      useResizeMedia(imageRef, containerRef, videoRatio, true)
+    })
     useLocalLenis(modalRef)
     modalLenis = nuxtApp.$localLenis
   })
@@ -42,7 +72,7 @@
     if (!modalLenis || !videoRef.value) return
     const video = videoRef.value
     newWidth.value = `120vw`
-    console.log(video.duration, newWidth.value)
+    console.log(video.duration)
     modalLenis.on('scroll', ({ progress }) => {
       if (video.currentTime < video.duration) {
         video.currentTime += progress
@@ -58,6 +88,7 @@
       updateVideoOnScroll()
     } else {
       videoRef.value.pause()
+      modalLenis.destroy()
     }
   }
 </script>

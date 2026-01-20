@@ -1,7 +1,8 @@
-/// <reference types="@nuxt/devtools" />
-/// <reference types="@nuxtjs/prismic" />
 /// <reference types="@nuxtjs/device" />
+/// <reference types="@nuxtjs/prismic" />
+/// <reference types="@nuxt/scripts" />
 /// <reference types="@nuxt/telemetry" />
+/// <reference types="@nuxt/devtools" />
 /// <reference path="types/builder-env.d.ts" />
 /// <reference path="types/plugins.d.ts" />
 /// <reference path="types/build.d.ts" />
@@ -17,6 +18,7 @@
 /// <reference path="imports.d.ts" />
 /// <reference path="types/imports.d.ts" />
 /// <reference path="schema/nuxt.schema.d.ts" />
+/// <reference path="module/nuxt-scripts.d.ts" />
 /// <reference path="types/nitro.d.ts" />
 
 export {}

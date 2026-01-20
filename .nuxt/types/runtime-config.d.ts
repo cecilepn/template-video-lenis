@@ -13,6 +13,10 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
    nitro: {
       envPrefix: string,
    },
+
+   "nuxt-scripts": {
+      version: string,
+   },
   }
   interface SharedPublicRuntimeConfig {
    device: {
@@ -36,6 +40,14 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
 
       components: {
          richTextComponents: string,
+      },
+   },
+
+   "nuxt-scripts": {
+      version: string,
+
+      defaultScriptOptions: {
+         trigger: string,
       },
    },
   }
