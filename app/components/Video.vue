@@ -1,7 +1,32 @@
 <script setup>
   import Lenis from 'lenis'
+
+  const props = defineProps({
+    sourceDesktop: {
+      type: Object,
+      required: false,
+      default: () => ({})
+    },
+    sourceMobile: {
+      type: Object,
+      required: false,
+      default: () => ({})
+    },
+    videoDesktop: {
+      type: Object,
+      required: false,
+      default: null
+    },
+    videoMobile: {
+      type: Object,
+      required: false,
+      default: null
+    }
+  })
+
   const videoRef = ref(null)
   const modalRef = ref(null)
+  const progressBar = ref(null)
   let modalLenis = null
 
   const initModalLenis = () => {
@@ -28,12 +53,15 @@
     modalLenis = null
   })
 
-  const updateScrollProgress = () => {
+  const updateVideoOnScroll = () => {
     nextTick(() => {
       if (modalLenis) {
         modalLenis.on('scroll', ({ progress }) => {
-          videoRef.value.currentTime += progress
-          console.log(videoRef.value.currentTime * progress)
+          if (videoRef.value.currentTime < videoRef.value.duration) {
+            videoRef.value.currentTime += progress
+
+            console.log(videoRef.value.currentTime)
+          }
         })
       }
     })
@@ -44,7 +72,7 @@
     if (videoRef.value.paused) {
       initModalLenis()
       videoRef.value.play()
-      updateScrollProgress()
+      updateVideoOnScroll()
     } else {
       videoRef.value.pause()
       modalLenis?.destroy()
@@ -62,6 +90,9 @@
         <source src="/content/video.mp4" type="video/mp4" />
       </video>
     </div>
+    <div
+      ref="progressBar"
+      class="h-full w-px bg-off-white absolute left-0 top-0" />
     <div class="z-10 absolute w-full h-full top-0" @click="togglePlay()" />
   </section>
 </template>

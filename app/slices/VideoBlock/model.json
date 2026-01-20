@@ -1,0 +1,51 @@
+{
+  "id": "video_block",
+  "type": "SharedSlice",
+  "name": "VideoBlock",
+  "description": "VideoBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "video_link": {
+          "type": "Embed",
+          "config": {
+            "label": "Video Link",
+            "placeholder": ""
+          }
+        },
+        "video_link_mobile": {
+          "type": "Embed",
+          "config": {
+            "label": "Video Link Mobile",
+            "placeholder": ""
+          }
+        },
+        "media_desktop": {
+          "type": "Link",
+          "config": {
+            "label": "Media Desktop",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        },
+        "media_mobile": {
+          "type": "Link",
+          "config": {
+            "label": "Media Mobile",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

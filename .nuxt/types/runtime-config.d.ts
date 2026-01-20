@@ -18,6 +18,26 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
    device: {
       defaultUserAgent: string,
    },
+
+   prismic: {
+      endpoint: string,
+
+      environment: string,
+
+      client: string,
+
+      linkResolver: string,
+
+      clientConfig: any,
+
+      preview: string,
+
+      toolbar: boolean,
+
+      components: {
+         richTextComponents: string,
+      },
+   },
   }
 declare module '@nuxt/schema' {
   interface RuntimeConfig extends UserRuntimeConfig {}
