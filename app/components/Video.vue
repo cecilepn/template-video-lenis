@@ -14,7 +14,8 @@
       smoothWheel: true,
       smoothTouch: true,
       autoRaf: true,
-      lerp: 0.15
+      lerp: 0.15,
+      orientation: 'horizontal'
     })
   }
 
@@ -28,11 +29,11 @@
   })
 
   const updateScrollProgress = () => {
-     nextTick(() => {
+    nextTick(() => {
       if (modalLenis) {
-          modalLenis.on('scroll', ({ progress }) => {
+        modalLenis.on('scroll', ({ progress }) => {
           videoRef.value.currentTime += progress
-          console.log(videoRef.value.currentTime * progress )
+          console.log(videoRef.value.currentTime * progress)
         })
       }
     })
@@ -42,22 +43,25 @@
     if (!videoRef.value || !modalLenis) return
     if (videoRef.value.paused) {
       initModalLenis()
-      videoRef.value.play();
+      videoRef.value.play()
       updateScrollProgress()
     } else {
-      videoRef.value.pause();
+      videoRef.value.pause()
       modalLenis?.destroy()
     }
   }
 </script>
 
 <template>
-  <section class="h-screen w-full overflow-hidden" ref="modalRef" data-lenis-local>
-    <div class="h-[120vh]" >
-      <video ref="videoRef" >
-        <source src="/content/video.mp4" type="video/mp4"/>
+  <section
+    class="h-screen w-full overflow-hidden"
+    ref="modalRef"
+    data-lenis-local>
+    <div class="w-[120vw]">
+      <video ref="videoRef">
+        <source src="/content/video.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="z-10 absolute w-full h-full top-0" @click="togglePlay()"/>
+    <div class="z-10 absolute w-full h-full top-0" @click="togglePlay()" />
   </section>
 </template>
