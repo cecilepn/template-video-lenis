@@ -4,6 +4,8 @@
   const { data: homepage } = await useAsyncData(() =>
     prismic.client.getSingle('homepage')
   )
+
+  console.log(homepage.value.data.slices[1].primary)
 </script>
 
 <template>

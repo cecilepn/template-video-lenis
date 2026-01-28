@@ -1,0 +1,73 @@
+{
+  "id": "answers_quiz",
+  "type": "SharedSlice",
+  "name": "AnswersQuiz",
+  "description": "AnswersQuiz",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "questions": {
+          "type": "Group",
+          "config": {
+            "label": "Questions",
+            "repeat": true,
+            "fields": {
+              "answer_a": {
+                "type": "Boolean",
+                "config": {
+                  "label": "answer A",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "answer_b": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Answer B",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "answer_c": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Answer C",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "answer_d": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Answer D",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "answer_e": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Answer E",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -69,7 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = VideoBlockSlice;
+type HomepageDocumentDataSlicesSlice = AnswersQuizSlice | VideoBlockSlice;
 
 /**
  * Content for Homepage documents
@@ -135,6 +135,113 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = HomepageDocument;
+
+/**
+ * Item in *AnswersQuiz → Default → Primary → Questions*
+ */
+export interface AnswersQuizSliceDefaultPrimaryQuestionsItem {
+  /**
+   * answer A field in *AnswersQuiz → Default → Primary → Questions*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: answers_quiz.default.primary.questions[].answer_a
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  answer_a: prismic.BooleanField;
+
+  /**
+   * Answer B field in *AnswersQuiz → Default → Primary → Questions*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: answers_quiz.default.primary.questions[].answer_b
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  answer_b: prismic.BooleanField;
+
+  /**
+   * Answer C field in *AnswersQuiz → Default → Primary → Questions*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: answers_quiz.default.primary.questions[].answer_c
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  answer_c: prismic.BooleanField;
+
+  /**
+   * Answer D field in *AnswersQuiz → Default → Primary → Questions*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: answers_quiz.default.primary.questions[].answer_d
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  answer_d: prismic.BooleanField;
+
+  /**
+   * Answer E field in *AnswersQuiz → Default → Primary → Questions*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: answers_quiz.default.primary.questions[].answer_e
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  answer_e: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *AnswersQuiz → Default → Primary*
+ */
+export interface AnswersQuizSliceDefaultPrimary {
+  /**
+   * Questions field in *AnswersQuiz → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: answers_quiz.default.primary.questions[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  questions: prismic.GroupField<
+    Simplify<AnswersQuizSliceDefaultPrimaryQuestionsItem>
+  >;
+}
+
+/**
+ * Default variation for AnswersQuiz Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AnswersQuizSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AnswersQuizSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AnswersQuiz*
+ */
+type AnswersQuizSliceVariation = AnswersQuizSliceDefault;
+
+/**
+ * AnswersQuiz Shared Slice
+ *
+ * - **API ID**: `answers_quiz`
+ * - **Description**: AnswersQuiz
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AnswersQuizSlice = prismic.SharedSlice<
+  "answers_quiz",
+  AnswersQuizSliceVariation
+>;
 
 /**
  * Primary content in *VideoBlock → Default → Primary*
@@ -236,6 +343,11 @@ declare module "@prismicio/client" {
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AnswersQuizSlice,
+      AnswersQuizSliceDefaultPrimaryQuestionsItem,
+      AnswersQuizSliceDefaultPrimary,
+      AnswersQuizSliceVariation,
+      AnswersQuizSliceDefault,
       VideoBlockSlice,
       VideoBlockSliceDefaultPrimary,
       VideoBlockSliceVariation,
