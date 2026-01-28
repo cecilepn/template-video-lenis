@@ -14,7 +14,7 @@ declare module "#build/plugins.server.mjs";
 declare module "#build/test-component-wrapper.mjs";
 declare module "#build/nuxtjs-device.mjs";
 declare module "#build/devtools/settings.mjs";
-declare module "#build/runtime.vue-devtools-client.jlzC7H26bMo8s_e0Hc909lqNKj4oe3oy50MS7ZafH8s.js";
+declare module "#build/runtime.vue-devtools-client.naTBRq9LbE__CP1l5nr8TKJWPwe2Uv4WvHOg3CrDF6g.js";
 declare module "#build/routes.mjs";
 declare module "#build/pages.mjs";
 declare module "#build/router.options.mjs";
